@@ -3,7 +3,7 @@ import React from 'react';
 import './style.scss';
 
 const CollectionItem = ( {
-	id, name, price, imageUrl,
+	name, price, imageUrl,
 } ) => (
 	<div className="collection-item">
 		<div

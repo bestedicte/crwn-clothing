@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './App.css';
@@ -34,28 +34,39 @@ componentDidMount() {
 }
 
 componentWillUnmount() {
+	// noinspection JSValidateTypes
 	this.unsubscribeFromAuth();
 }
 
 render() {
+	const { currentUser } = this.props;
 	return (
 		<div>
 			<Header />
 			<Switch>
 				<Route exact path="/" component={ HomePage } />
 				<Route path="/shop" component={ Shop } />
-				<Route path="/signin" component={ SignInSignUp } />
+				<Route
+					exact
+					path="/signin"
+					render={ () => currentUser ? ( <Redirect to="/" /> ) : ( <SignInSignUp /> ) }
+				/>
 			</Switch>
 		</div>
 	);
 }
 }
 
+// eslint-disable-next-line no-unused-vars
+const mapStateToProps = ( { user } ) => ( {
+	currentUser: user.currentUser,
+} );
+
 const mapDispatchToProps = ( dispatch ) => ( {
 	setCurrentUser: ( user ) => dispatch( setCurrentUser( user ) ),
 } );
 
 export default connect(
-	null,
+	mapStateToProps,
 	mapDispatchToProps,
 )( App );

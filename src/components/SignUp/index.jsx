@@ -28,6 +28,7 @@ handleSubmit = async ( event ) => {
 	} = this.state;
 
 	if ( password !== confirmPassword ) {
+		// eslint-disable-next-line no-alert
 		alert( "passwords don't match" );
 		return;
 	}
