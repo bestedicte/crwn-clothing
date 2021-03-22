@@ -8,8 +8,9 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './style.scss';
 import CartIcon from '../CartIcon';
+import CartDropdown from '../CartDropdown';
 
-const Header = ( { currentUser } ) => (
+const Header = ( { currentUser, hidden } ) => (
 	<div className="header">
 		<Link className="logo-container" to="/">
 			<Logo className="logo" />
@@ -33,11 +34,19 @@ const Header = ( { currentUser } ) => (
 			)}
 			<CartIcon />
 		</div>
+		{
+			hidden ? null
+				: <CartDropdown />
+		}
 	</div>
 );
 
-const mapStateToProps = ( state ) => ( {
-	currentUser: state.user.currentUser,
-} );
+const mapStateToProps = ( { user: { currentUser }, cart: { hidden } } ) => {
+	// eslint-disable-next-line no-unused-expressions
+	(
+		currentUser,
+		hidden
+	);
+};
 
 export default connect( mapStateToProps )( Header );

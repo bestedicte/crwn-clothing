@@ -17,6 +17,7 @@
 			transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
 		}
 
+		//noinspection Stylelint
 		.content {
 			opacity: 0.9;
 		}
@@ -53,6 +54,7 @@
 		padding: 0 25px;
 		position: absolute;
 
+		//noinspection Stylelint
 		.title {
 			color: #4a4a4a;
 			font-size: 22px;
@@ -60,9 +62,6 @@
 			margin: 0 6px;
 		}
 
-		.subtitle {
-			font-size: 16px;
-			font-weight: lighter;
-		}
+		//noinspection Stylelint
 	}
 }
