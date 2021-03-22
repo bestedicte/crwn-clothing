@@ -7,6 +7,7 @@ import { auth } from '../../firebase/firebaseUtils';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './style.scss';
+import CartIcon from '../CartIcon';
 
 const Header = ( { currentUser } ) => (
 	<div className="header">
@@ -30,6 +31,7 @@ const Header = ( { currentUser } ) => (
 					SIGN IN
 				</Link>
 			)}
+			<CartIcon />
 		</div>
 	</div>
 );
