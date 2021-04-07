@@ -1,1 +1,48 @@
-//noinspection Stylelint
+
+.custom-button {
+	background-color: #000;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	display: flex;
+	font-family: 'Open Sans Condensed', serif;
+	font-size: 15px;
+	font-weight: bolder;
+	height: 50px;
+	justify-content: center;
+	letter-spacing: 0.5px;
+	line-height: 50px;
+	min-width: 165px;
+	padding: 0 35px;
+	text-transform: uppercase;
+	width: auto;
+	
+	&:hover {
+		background-color: #fff;
+		border: 1px solid #000;
+		color: #000;
+	}
+
+	&.google-sign-in {
+		background-color: #4285f4;
+		color: #fff;
+
+		&:hover {
+			background-color: #357ae8;
+			border: none;
+		}
+	}
+
+	&.inverted {
+		background-color: #fff;
+		border: 1px solid #000;
+		color: #000;
+
+		&:hover {
+			background-color: #000;
+			border: none;
+			color: #fff;
+
+		}
+	}
+}

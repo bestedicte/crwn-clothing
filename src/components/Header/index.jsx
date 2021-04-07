@@ -41,12 +41,9 @@ const Header = ( { currentUser, hidden } ) => (
 	</div>
 );
 
-const mapStateToProps = ( { user: { currentUser }, cart: { hidden } } ) => {
-	// eslint-disable-next-line no-unused-expressions
-	(
-		currentUser,
-		hidden
-	);
-};
+const mapStateToProps = ( { user: { currentUser }, cart: { hidden } } ) => ( {
+	currentUser,
+	hidden,
+} );
 
 export default connect( mapStateToProps )( Header );
