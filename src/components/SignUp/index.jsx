@@ -1,10 +1,7 @@
 import React from 'react';
-
 import FormInput from '../FormInput';
 import CustomButton from '../CustomButton';
-
 import { auth, createUserProfileDocument } from '../../firebase/firebaseUtils';
-
 import './style.scss';
 
 class SignUp extends React.Component {
@@ -28,6 +25,7 @@ handleSubmit = async ( event ) => {
 	} = this.state;
 
 	if ( password !== confirmPassword ) {
+		// eslint-disable-next-line no-alert
 		alert( "passwords don't match" );
 		return;
 	}

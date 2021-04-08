@@ -1,4 +1,6 @@
-import { createStore, applyMiddleware } from 'redux';
+// noinspection JSCheckFunctionSignatures
+
+import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 
 import rootReducer from './rootReducer';
