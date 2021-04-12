@@ -1,18 +1,18 @@
-import { Redirect, Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
-import React from "react";
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import React from 'react';
 
-import "./App.css";
+import './App.css';
 
-import { createStructuredSelector } from "reselect";
-import HomePage from "./pages/HomePage";
-import Shop from "./pages/Shop";
-import SignInSignUp from "./pages/SignInSignUp";
-import Header from "./components/Header";
-import { auth, createUserProfileDocument } from "./firebase/firebaseUtils";
-import { setCurrentUser } from "./redux/user/userActions";
-import { selectCurrentUser } from "./redux/user/userSelectors";
-import CheckoutPage from "./pages/Checkout";
+import { createStructuredSelector } from 'reselect';
+import HomePage from './pages/HomePage';
+import Shop from './pages/Shop';
+import SignInSignUp from './pages/SignInSignUp';
+import Header from './components/Header';
+import { auth, createUserProfileDocument } from './firebase/firebaseUtils';
+import { setCurrentUser } from './redux/user/userActions';
+import { selectCurrentUser } from './redux/user/userSelectors';
+import CheckoutPage from './pages/Checkout';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -52,6 +52,7 @@ class App extends React.Component {
             exact
             path="/signin"
             render={() =>
+              // eslint-disable-next-line react/destructuring-assignment
               this.props.currentUser ? <Redirect to="/" /> : <SignInSignUp />
             }
           />

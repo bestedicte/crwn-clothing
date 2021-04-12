@@ -1,18 +1,19 @@
-import React from "react";
-import FormInput from "../FormInput";
-import CustomButton from "../CustomButton";
-import { auth, createUserProfileDocument } from "../../firebase/firebaseUtils";
-import "./style.scss";
+/* eslint-disable no-alert */
+import React from 'react';
+import FormInput from '../FormInput';
+import CustomButton from '../CustomButton';
+import { auth, createUserProfileDocument } from '../../firebase/firebaseUtils';
+import './style.scss';
 
 class SignUp extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      displayName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      displayName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
     };
   }
 
@@ -22,6 +23,8 @@ class SignUp extends React.Component {
     const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
+      // eslint-disable-next-line no-alert
+      // eslint-disable-next-line no-undef
       alert("passwords don't match");
       return;
     }
@@ -35,12 +38,13 @@ class SignUp extends React.Component {
       await createUserProfileDocument(user, { displayName });
 
       this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
+        displayName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
       });
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
   };

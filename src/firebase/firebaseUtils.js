@@ -1,15 +1,15 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
 
 const config = {
-  apiKey: "AIzaSyDxVfLm-MkAr6AvNrKqTJKvqE5ufcbZzQs",
-  authDomain: "crwn-clothing-28a4a.firebaseapp.com",
-  projectId: "crwn-clothing-28a4a",
-  storageBucket: "crwn-clothing-28a4a.appspot.com",
-  messagingSenderId: "929312945195",
-  appId: "1:929312945195:web:f6bcf018414a02590ee66e",
-  measurementId: "G-4CD4CWJ0GK",
+  apiKey: 'AIzaSyDxVfLm-MkAr6AvNrKqTJKvqE5ufcbZzQs',
+  authDomain: 'crwn-clothing-28a4a.firebaseapp.com',
+  projectId: 'crwn-clothing-28a4a',
+  storageBucket: 'crwn-clothing-28a4a.appspot.com',
+  messagingSenderId: '929312945195',
+  appId: '1:929312945195:web:f6bcf018414a02590ee66e',
+  measurementId: 'G-4CD4CWJ0GK',
 };
 
 firebase.initializeApp(config);
@@ -37,12 +37,13 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         ...additionalData,
       });
     } catch (error) {
-      console.log("error creating user", error.message);
+      console.log('error creating user', error.message);
     }
   }
+  // eslint-disable-next-line consistent-return
   return userRef;
 };
 
 const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
+provider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);

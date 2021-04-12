@@ -1,10 +1,10 @@
-import { connect } from "react-redux";
-import "./style.scss";
+import { connect } from 'react-redux';
+import './style.scss';
 import {
   addItem,
   clearItemFromCaart,
   removeItem,
-} from "../../redux/Cart/cartActions";
+} from '../../redux/Cart/cartActions';
 
 const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;

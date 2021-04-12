@@ -1,6 +1,7 @@
-import React from "react";
-import CollectionPreview from "../../components/CollectionPreview";
-import SHOP_DATA from "./shopData.js";
+import React from 'react';
+import CollectionPreview from '../../components/CollectionPreview';
+// eslint-disable-next-line import/extensions
+import SHOP_DATA from './shopData.js';
 
 class ShopPage extends React.Component {
   constructor(props) {
