@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import Directory from '../../components/Directory';
+import Directory from "../../components/Directory";
 
-import './style.scss';
+import "./style.scss";
 
 const Index = () => (
-	<div className="homepage">
-		<Directory />
-	</div>
+  <div className="homepage">
+    <Directory />
+  </div>
 );
 
 export default Index;

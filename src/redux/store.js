@@ -1,12 +1,12 @@
 // noinspection JSCheckFunctionSignatures
 
-import { applyMiddleware, createStore } from 'redux';
-import logger from 'redux-logger';
+import { applyMiddleware, createStore } from "redux";
+import logger from "redux-logger";
 
-import rootReducer from './rootReducer';
+import rootReducer from "./rootReducer";
 
-const middlewares = [ logger ];
+const middlewares = [logger];
 
-const store = createStore( rootReducer, applyMiddleware( ...middlewares ) );
+const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
 export default store;
