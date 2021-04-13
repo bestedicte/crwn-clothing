@@ -1,8 +1,9 @@
 {
-  "extends": "stylelint-config-sass-guidelines",
+  "plugins": [
+    "stylelint-scss"
+  ],
   "rules": {
-    "indentation": "tab",
-    "number-leading-zero": null,
-    "max-nesting-depth": null
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true
   }
 }

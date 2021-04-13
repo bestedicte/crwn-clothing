@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import React from 'react';
 
 import './App.css';
 
@@ -14,66 +14,60 @@ import { setCurrentUser } from './redux/user/userActions';
 import { selectCurrentUser } from './redux/user/userSelectors';
 import CheckoutPage from './pages/Checkout';
 
-class App extends Component {
-unsubscribeFromAuth = null;
+class App extends React.Component {
+  unsubscribeFromAuth = null;
 
-componentDidMount() {
-	const { setCurrentUser } = this.props;
+  componentDidMount() {
+    const { setCurrentUser } = this.props;
 
-	this.unsubscribeFromAuth = auth.onAuthStateChanged( async ( userAuth ) => {
-		if ( userAuth ) {
-			const userRef = await createUserProfileDocument( userAuth );
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
 
-			userRef.onSnapshot( ( snapShot ) => {
-				setCurrentUser( {
-					id: snapShot.id,
-					...snapShot.data(),
-				} );
-			} );
-		}
+        userRef.onSnapshot((snapShot) => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data(),
+          });
+        });
+      }
 
-		setCurrentUser( userAuth );
-	} );
+      setCurrentUser(userAuth);
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={Shop} />
+          <Route exact path="/checkout" component={CheckoutPage} />
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              // eslint-disable-next-line react/destructuring-assignment
+              this.props.currentUser ? <Redirect to="/" /> : <SignInSignUp />
+            }
+          />
+        </Switch>
+      </div>
+    );
+  }
 }
 
-componentWillUnmount() {
-	// noinspection JSValidateTypes
-	this.unsubscribeFromAuth();
-}
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
 
-render() {
-	const { currentUser } = this.props;
-	return (
-		<div>
-			<Header />
-			<Switch>
-				<Route exact path="/" component={ HomePage } />
-				<Route path="/shop" component={ Shop } />
-				<Route exact path="/checkout" component={ CheckoutPage } />
-				<Route
-					exact
-					path="/signin"
-					render={ () => currentUser ? ( <Redirect to="/" /> ) : ( <SignInSignUp /> ) }
-				/>
-			</Switch>
-		</div>
-	);
-}
-}
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
 
-// eslint-disable-next-line no-unused-vars
-const mapStateToProps = createStructuredSelector(
-	{
-		currentUser: selectCurrentUser,
-	},
-);
-
-const mapDispatchToProps = ( dispatch ) => ( {
-	setCurrentUser: ( user ) => dispatch( setCurrentUser( user ) ),
-} );
-
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps,
-)( App );
-
+export default connect(mapStateToProps, mapDispatchToProps)(App);
