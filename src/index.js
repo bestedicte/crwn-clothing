@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 // eslint-disable-next-line import/extensions
-import { store, persistor } from './redux/store.js';
+import { persistor, store } from './redux/store.js';
 
 import './index.css';
 import App from './App';
@@ -19,5 +19,5 @@ ReactDOM.render(
     </BrowserRouter>
   </Provider>,
   // eslint-disable-next-line no-undef
-  document.getElementById('root')
+  document.getElementById('root'),
 );

@@ -37,6 +37,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         ...additionalData,
       });
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log('error creating user', error.message);
     }
   }
