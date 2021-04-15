@@ -52,9 +52,8 @@ class App extends React.Component {
             exact
             path="/signin"
             render={() =>
-              // eslint-disable-next-line react/destructuring-assignment
-              this.props.currentUser ? <Redirect to="/" /> : <SignInSignUp />
-            }
+              // eslint-disable-next-line react/destructuring-assignment,implicit-arrow-linebreak
+              (this.props.currentUser ? <Redirect to="/" /> : <SignInSignUp />)}
           />
         </Switch>
       </div>

@@ -1,7 +1,6 @@
 {
-  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "extends": ["airbnb"],
   "parser": "babel-eslint",
-  "plugins": ["prettier"],
  "settings": {
     "import/resolver": {
       "node": {
@@ -10,13 +9,13 @@
     }
   },
   "rules": {
-    "prettier/prettier": "error",
     "react/jsx-filename-extension": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "no-shadow": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-static-element-interactions": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "quotes": [2, "single", { "avoidEscape": true }]
   }
 }

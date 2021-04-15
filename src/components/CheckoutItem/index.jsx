@@ -6,8 +6,12 @@ import {
   removeItem,
 } from '../../redux/Cart/cartActions';
 
-const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
-  const { name, imageUrl, price, quantity } = cartItem;
+const CheckoutItem = ({
+  cartItem, clearItem, addItem, removeItem,
+}) => {
+  const {
+    name, imageUrl, price, quantity,
+  } = cartItem;
   return (
     <div className="checkout-item">
       <div className="image-container">
